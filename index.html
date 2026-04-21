@@ -36,15 +36,15 @@
   h1 em { font-style: italic; }
   .sub { font-size: 0.9rem; line-height: 1.8; color: var(--muted); max-width: 430px; margin-bottom: 2rem; }
   .cta-row { display: flex; gap: 1rem; align-items: center; margin-bottom: 3rem; flex-wrap: wrap; }
-  .btn { padding: 0.75rem 1.9rem; background: var(--accent); color: var(--accent-text); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; font-family: var(--font-sans); text-decoration: none; display: inline-block; }
-  .btn:hover { opacity: 0.85; }
-  .btn-ghost { background: none; border: 1px solid var(--border); color: var(--muted); padding: 0.75rem 1.4rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: var(--font-sans); text-decoration: none; display: inline-block; }
+  .btn { padding: 0.75rem 1.9rem; background: var(--accent); color: var(--accent-text); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; font-family: var(--font-sans); text-decoration: none; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
+  .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-ghost { background: none; border: 1px solid var(--border); color: var(--muted); padding: 0.75rem 1.4rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: var(--font-sans); text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
   /* BEFORE AFTER */
   .ba-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
   .ba-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
-  .ba-tab { padding: 0.4rem 1rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--muted); font-family: var(--font-sans); }
+  .ba-tab { padding: 0.4rem 1rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--muted); font-family: var(--font-sans); transition: border-color 0.2s, color 0.2s, background 0.2s; }
   .ba-tab.active { border-color: var(--accent); color: var(--text); background: var(--card-bg); }
   .ba-viewer { position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: var(--card-bg); user-select: none; cursor: ew-resize; }
   .ba-before, .ba-after { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
@@ -73,20 +73,22 @@
   /* PACKS */
   .section-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 300; margin-bottom: 1.25rem; }
   .pack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .pack { border: 1px solid var(--border); padding: 1.5rem; }
+  .pack { border: 1px solid var(--border); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
+  .pack:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
   .pack.featured { border-color: var(--accent); }
   .pack-badge { display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--card-bg); color: var(--muted); padding: 0.2rem 0.5rem; margin-bottom: 0.75rem; }
   .pack-name { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 300; margin-bottom: 0.25rem; }
   .pack-price { font-size: 1.7rem; font-weight: 500; margin-bottom: 0.2rem; }
   .pack-info { font-size: 11px; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
-  .pack-btn { display: block; width: 100%; text-align: center; padding: 0.6rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--muted); font-family: var(--font-sans); }
+  .pack-btn { display: block; width: 100%; text-align: center; padding: 0.6rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--muted); font-family: var(--font-sans); transition: border-color 0.2s, color 0.2s; }
   .pack-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .pack.featured .pack-btn { background: var(--accent); color: var(--accent-text); border-color: transparent; }
+  .pack.featured .pack-btn { background: var(--accent); color: var(--accent-text); border-color: transparent; transition: opacity 0.2s; }
   .pack.featured .pack-btn:hover { opacity: 0.85; }
 
   /* STEPS */
   .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .step { padding: 1.1rem; background: var(--card-bg); border-radius: 8px; }
+  .step { padding: 1.1rem; background: var(--card-bg); border-radius: 8px; transition: background 0.2s; }
+  .step:hover { background: #ede8e0; }
   .step-n { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 300; color: var(--muted); line-height: 1; margin-bottom: 0.35rem; }
   .step-t { font-size: 0.82rem; font-weight: 500; margin-bottom: 0.2rem; }
   .step-d { font-size: 0.76rem; color: var(--muted); line-height: 1.6; }
@@ -104,8 +106,24 @@
   /* FOOTER */
   .footer { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; flex-wrap: wrap; gap: 1rem; }
   .footer span { font-size: 11px; color: var(--muted); }
-  .footer a { font-size: 11px; color: var(--muted); text-decoration: none; margin-left: 1rem; }
+  .footer a { font-size: 11px; color: var(--muted); text-decoration: none; margin-left: 1rem; transition: color 0.2s; }
   .footer a:hover { color: var(--accent); }
+
+  /* ── ANIMASI MASUK ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .anim { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .anim-1 { animation-delay: 0.05s; }
+  .anim-2 { animation-delay: 0.15s; }
+  .anim-3 { animation-delay: 0.25s; }
+  .anim-4 { animation-delay: 0.35s; }
+  .anim-5 { animation-delay: 0.45s; }
+
+  /* ── ANIMASI SCROLL ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 480px) {
     h1 { font-size: 2rem; }
@@ -121,18 +139,18 @@
   <!-- ═══════════════════════════════════ -->
 
   <!-- EDIT: Ganti nama brand -->
-  <p class="brand"><em>Van</em> Creative Lab</p>
+  <p class="brand anim anim-1"><em>Van</em> Creative Lab</p>
 
   <!-- EDIT: Ganti label kecil di atas judul -->
-  <p class="tag">Lightroom Wedding Presets</p>
+  <p class="tag anim anim-2">Lightroom Wedding Presets</p>
 
   <!-- EDIT: Ganti judul utama -->
-  <h1>Edit lebih cepat,<br>hasil <em>lebih Profesional</em></h1>
+  <h1 class="anim anim-3">Edit lebih cepat,<br>hasil <em>lebih Profesional</em></h1>
 
   <!-- EDIT: Ganti deskripsi singkat -->
-  <p class="sub">Preset Lightroom khusus pernikahan dari Van Creative Lab. Bisa untuk Semua Tipe Kamera, tampilan hangat, elegan, dan konsisten.</p>
+  <p class="sub anim anim-4">Preset Lightroom khusus pernikahan dari Van Creative Lab. Bisa untuk Semua Tipe Kamera, tampilan hangat, elegan, dan konsisten.</p>
 
-  <div class="cta-row">
+  <div class="cta-row anim anim-5">
     <!-- EDIT: Ganti link tombol beli (href) -->
     <a href="https://ivanvan.myr.id/catalog/vancreativelab" class="btn">Download Sekarang
     </a>
@@ -145,16 +163,16 @@
   <!--  BAGIAN 2: BEFORE & AFTER           -->
   <!-- ═══════════════════════════════════ -->
 
-  <p class="ba-label">Before &amp; After — geser untuk membandingkan</p>
+  <p class="ba-label reveal">Before &amp; After — geser untuk membandingkan</p>
 
-  <div class="ba-tabs" id="baTabs">
+  <div class="ba-tabs reveal" id="baTabs">
     <!-- EDIT: Ganti nama preset di tombol tab -->
     <button class="ba-tab active" data-preset="1" data-desc="Prewedding ">Prewedding</button>
     <button class="ba-tab" data-preset="2" data-desc="Wedding Outdoor ">Wedding Outdoor</button>
     <button class="ba-tab" data-preset="3" data-desc="Wedding Indoor">Wedding Indoor</button>
   </div>
 
-  <div class="ba-viewer" id="baViewer">
+  <div class="ba-viewer reveal" id="baViewer">
     <div class="ba-before ba-before-1" id="baBefore"></div>
     <div class="ba-after ba-after-1" id="baAfter"><span class="photo-label"></span></div>
     <div class="ba-handle" id="baHandle">
@@ -173,8 +191,8 @@
   <!--  BAGIAN 3: PAKET HARGA              -->
   <!-- ═══════════════════════════════════ -->
 
-  <p id="paket" class="section-title">Pilih paket</p>
-  <div class="pack-grid">
+  <p id="paket" class="section-title reveal">Pilih paket</p>
+  <div class="pack-grid reveal">
 
     <!-- PAKET 1 -->
     <div class="pack">
@@ -222,8 +240,8 @@
   <!--  BAGIAN 4: CARA PAKAI               -->
   <!-- ═══════════════════════════════════ -->
 
-  <p class="section-title">Cara pakai</p>
-  <div class="steps">
+  <p class="section-title reveal">Cara pakai</p>
+  <div class="steps reveal">
 
     <!-- EDIT: Ubah langkah-langkah sesuai kebutuhan -->
     <div class="step">
@@ -255,7 +273,7 @@
   <!--  BAGIAN 5: CTA DOWNLOAD GRATIS      -->
   <!-- ═══════════════════════════════════ -->
 
-  <div class="cta-dl" id="download">
+  <div class="cta-dl reveal" id="download">
     <div class="cta-dl-head">
       <!-- EDIT: Judul CTA -->
       <p class="cta-dl-title">Segera Download,<br> kalau emang <em>suka</em></p>
@@ -325,6 +343,18 @@
   });
 
   setPos(viewer.getBoundingClientRect().left + viewer.getBoundingClientRect().width * 0.5);
+
+  // Scroll reveal — elemen muncul saat masuk viewport
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
