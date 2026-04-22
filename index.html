@@ -79,6 +79,47 @@
   .pack-badge { display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--card-bg); color: var(--muted); padding: 0.2rem 0.5rem; margin-bottom: 0.75rem; }
   .pack-name { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 300; margin-bottom: 0.25rem; }
   .pack-price { font-size: 1.7rem; font-weight: 500; margin-bottom: 0.2rem; }
+
+  /* Harga coret kreatif */
+  .price-block { margin-bottom: 0.2rem; }
+  .price-main-row { display: flex; align-items: flex-start; gap: 0.3rem; }
+  .price-was-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.15rem; }
+  .price-was {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--muted);
+    position: relative;
+    letter-spacing: 0.02em;
+    margin-top: 0.3rem;
+    white-space: nowrap;
+  }
+  .price-was::after {
+    content: '';
+    position: absolute;
+    left: -2px; right: -2px;
+    top: 50%;
+    height: 1.5px;
+    background: #c0392b;
+    transform: rotate(-4deg);
+  }
+  .price-save-badge {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: #1a1410;
+    color: #fff;
+    padding: 0.18rem 0.5rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    border-radius: 2px;
+    display: inline-block;
+    margin-top: 0.1rem;
+    animation: pulse-badge 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-badge {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.65; }
+  }
   .pack-info { font-size: 11px; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
   .pack-btn { display: block; width: 100%; text-align: center; padding: 0.6rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); background: none; cursor: pointer; color: var(--muted); font-family: var(--font-sans); transition: border-color 0.2s, color 0.2s; }
   .pack-btn:hover { border-color: var(--accent); color: var(--accent); }
@@ -129,6 +170,239 @@
     h1 { font-size: 2rem; }
     .pack-grid, .steps { grid-template-columns: 1fr; }
   }
+
+  /* ── SLIDESHOW ── */
+  .slideshow-wrap {
+    margin-bottom: 0;
+  }
+  .slideshow-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .slideshow-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .slideshow-nav {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .ss-btn {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    background: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s;
+    font-family: var(--font-sans);
+    line-height: 1;
+  }
+  .ss-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .slideshow-track-wrap {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .slideshow-track {
+    display: flex;
+    transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: transform;
+  }
+  .ss-slide {
+    flex: 0 0 100%;
+    aspect-ratio: 3/4;
+    position: relative;
+    background: var(--card-bg);
+    overflow: hidden;
+  }
+  .ss-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .ss-slide:hover img { transform: scale(1.03); }
+  .ss-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25rem 1rem 0.9rem;
+    background: linear-gradient(to top, rgba(26,20,16,0.55) 0%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .ss-caption-text {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.3;
+  }
+  .ss-caption-num {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-sans);
+  }
+
+  .ss-dots {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+    justify-content: center;
+  }
+  .ss-dot {
+    width: 20px;
+    height: 2px;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.3s, width 0.3s;
+    border: none;
+    padding: 0;
+  }
+  .ss-dot.active {
+    background: var(--accent);
+    width: 36px;
+  }
+
+  /* ── FAQ ── */
+  .faq-wrap {
+    position: relative;
+    margin: 0 0 0 0;
+  }
+  .faq-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .faq-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+  .faq-counter {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: var(--font-sans);
+  }
+  .faq-list {
+    border-top: 1px solid var(--border);
+  }
+  .faq-item {
+    overflow: hidden;
+  }
+  .faq-item + .faq-item {
+    border-top: 1px solid var(--border);
+  }
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.1rem 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-sans);
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--muted); }
+  .faq-item.open .faq-q { color: var(--text); }
+  .faq-q-text {
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .faq-q-num {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--muted);
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    line-height: 1.5;
+  }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    margin-top: 2px;
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--muted);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+  .faq-icon::before { width: 10px; height: 1px; top: 8px; left: 4px; }
+  .faq-icon::after  { width: 1px; height: 10px; top: 4px; left: 8px; }
+  .faq-item.open .faq-icon::after { transform: scaleY(0); opacity: 0; }
+  .faq-a-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.38s ease;
+  }
+  .faq-item.open .faq-a-wrap {
+    grid-template-rows: 1fr;
+  }
+  .faq-a-inner { overflow: hidden; }
+  .faq-a {
+    padding: 0 0 1.25rem 0;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 500px;
+  }
+  .faq-a strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .faq-a a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .faq-tag-row {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.6rem;
+  }
+  .faq-tag {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 20px;
+  }
 </style>
 </head>
 <body>
@@ -155,6 +429,80 @@
     <a href="https://ivanvan.myr.id/catalog/vancreativelab" class="btn">Download Sekarang
     </a>
     <!-- EDIT: Ganti teks tombol kedua -->
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════ -->
+  <!--  SLIDESHOW FOTO                     -->
+  <!-- ═══════════════════════════════════ -->
+
+  <div class="slideshow-wrap reveal">
+    <div class="slideshow-header">
+      <!-- Label di kiri -->
+      <span class="slideshow-label">Galeri Hasil Preset</span>
+      <!-- Tombol prev/next -->
+      <div class="slideshow-nav">
+        <button class="ss-btn" id="ssPrev">&#8592;</button>
+        <button class="ss-btn" id="ssNext">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="slideshow-track-wrap">
+      <div class="slideshow-track" id="ssTrack">
+
+        <!-- EDIT: Ganti src foto dengan nama file fotomu -->
+        <div class="ss-slide">
+          <img src="SLIDE1.jpg" alt="Wedding Photo 1">
+          <div class="ss-caption">
+            <span class="ss-caption-text"> </span>
+            <span class="ss-caption-num">01 / 05</span>
+          </div>
+        </div>
+
+        <div class="ss-slide">
+          <img src="SLIDE2.jpg" alt="Wedding Photo 2">
+          <div class="ss-caption">
+            <span class="ss-caption-text"> </span>
+            <span class="ss-caption-num">02 / 05</span>
+          </div>
+        </div>
+
+        <div class="ss-slide">
+          <img src="SLIDE3.jpg" alt="Wedding Photo 3">
+          <div class="ss-caption">
+            <span class="ss-caption-text"> </span>
+            <span class="ss-caption-num">03 / 05</span>
+          </div>
+        </div>
+
+        <div class="ss-slide">
+          <img src="SLIDE4.jpg" alt="Wedding Photo 4">
+          <div class="ss-caption">
+            <span class="ss-caption-text"> </span>
+            <span class="ss-caption-num">04 / 05</span>
+          </div>
+        </div>
+
+        <div class="ss-slide">
+          <img src="SLIDE5.jpg" alt="Wedding Photo 5">
+          <div class="ss-caption">
+            <span class="ss-caption-text"> </span>
+            <span class="ss-caption-num">05 / 05</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dots indicator -->
+    <div class="ss-dots" id="ssDots">
+      <button class="ss-dot active"></button>
+      <button class="ss-dot"></button>
+      <button class="ss-dot"></button>
+      <button class="ss-dot"></button>
+      <button class="ss-dot"></button>
+    </div>
   </div>
 
   <hr class="divider">
@@ -217,7 +565,12 @@
       <!-- EDIT: Nama paket -->
       <p class="pack-name">Complete Bundle</p>
       <!-- EDIT: Harga -->
-      <p class="pack-price">Rp 99rb</p>
+      <div class="price-block">
+        <div class="price-main-row">
+          <p class="pack-price">Rp 99rb</p>
+        </div>
+        <span class="price-save-badge">Hemat 80%</span>
+      </div>
       <!-- EDIT: Isi paket -->
       <p class="pack-info">
         1 preset Eternal love + 3 bonus preset<br>
@@ -225,7 +578,7 @@
         Panduan PDF
       </p>
       <!-- EDIT: Ganti link tombol -->
-      <a href=https://ivanvan.myr.id/catalog/WEDDING-PRESET class="pack-btn">Pilih paket</a>
+      <a href=https://ivanvan.myr.id/catalog/BUNDLE-PRESET class="pack-btn">Pilih paket</a>
     </div>
 
   </div>
@@ -265,6 +618,92 @@
       <div class="step-d">Sesuaikan ambience dari foto kamu, exposure,kontras,gelap dan terang, lalu simpan</div>
     </div>
 
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════ -->
+  <!--  FAQ                                -->
+  <!-- ═══════════════════════════════════ -->
+
+  <div class="faq-wrap reveal">
+    <div class="faq-header">
+      <p class="faq-title">Pertanyaan Umum</p>
+      <span class="faq-counter">05 pertanyaan</span>
+    </div>
+    <div class="faq-list" id="faqList">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-num">01</span>
+          <span class="faq-q-text">Preset ini cocok untuk kamera apa saja?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a-wrap"><div class="faq-a-inner">
+          <p class="faq-a">Preset Van Creative Lab kompatibel dengan <strong>semua tipe kamera</strong> — baik mirrorless maupun DSLR, Karena berbasis Lightroom, preset bekerja pada file RAW maupun JPEG, .</p>
+          <div class="faq-tag-row">
+            <span class="faq-tag">RAW</span>
+            <span class="faq-tag">JPEG</span>
+            <span class="faq-tag">Semua Kamera</span>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-num">02</span>
+          <span class="faq-q-text">Apakah bisa dipakai di Lightroom Mobile (HP)?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a-wrap"><div class="faq-a-inner">
+          <p class="faq-a">Ya! Setiap paket sudah termasuk format <strong>.dng</strong> untuk Lightroom Mobile dan <strong>.xmp</strong> untuk Lightroom Desktop/Classic. Panduan PDF langkah-demi-langkah juga disertakan agar prosesnya mudah.</p>
+          <div class="faq-tag-row">
+            <span class="faq-tag">LR Mobile</span>
+            <span class="faq-tag">LR Desktop</span>
+            <span class="faq-tag">.dng &amp; .xmp</span>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-num">03</span>
+          <span class="faq-q-text">Bagaimana cara saya menerima file preset-nya?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a-wrap"><div class="faq-a-inner">
+          <p class="faq-a">Setelah pembayaran berhasil, file preset beserta panduan PDF akan <strong>dikirim otomatis ke email</strong> yang kamu daftarkan. Cek folder inbox atau spam jika belum masuk dalam 5 menit.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-num">04</span>
+          <span class="faq-q-text">Apakah ada garansi atau refund?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a-wrap"><div class="faq-a-inner">
+          <p class="faq-a">Karena ini adalah produk digital yang langsung bisa diunduh, kami <strong>tidak menyediakan refund</strong> setelah file diterima.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-num">05</span>
+          <span class="faq-q-text">Apakah ada settingan kamera yang disarankan agar hasil preset maksimal?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a-wrap"><div class="faq-a-inner">
+          <p class="faq-a">Untuk hasil terbaik, disarankan memotret dalam format <strong>RAW</strong> dengan white balance <strong>Auto (AWB)</strong> atau bisa menyesuaikan kondisi ambience pakai kelvin. Hindari over/underexposure yang terlalu ekstrem — eksposur yang tepat saat memotret akan membuat preset bekerja lebih optimal. Picture Style kamera bisa diset ke <strong>Neutral</strong> atau <strong>Standart</strong> agar tidak ada koreksi warna berlebih dari kamera sebelum masuk Lightroom.</p>
+          <div class="faq-tag-row">
+            <span class="faq-tag">Shoot RAW</span>
+            <span class="faq-tag">AWB</span>
+            <span class="faq-tag">Neutral Profile</span>
+          </div>
+        </div></div>
+      </div>
+
+    </div>
   </div>
 
   <hr class="divider">
@@ -343,6 +782,47 @@
   });
 
   setPos(viewer.getBoundingClientRect().left + viewer.getBoundingClientRect().width * 0.5);
+
+  // Slideshow
+  (function() {
+    const track = document.getElementById('ssTrack');
+    const dots  = document.querySelectorAll('#ssDots .ss-dot');
+    const total = dots.length;
+    let cur = 0, autoTimer;
+
+    function goTo(n) {
+      cur = (n + total) % total;
+      track.style.transform = `translateX(-${cur * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+
+    document.getElementById('ssPrev').addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
+    document.getElementById('ssNext').addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetAuto(); }));
+
+    // Swipe support
+    let startX = 0;
+    track.parentElement.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.parentElement.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) { goTo(diff > 0 ? cur + 1 : cur - 1); resetAuto(); }
+    });
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(cur + 1), 4500);
+    }
+    resetAuto();
+  })();
+
+  // FAQ accordion
+  document.getElementById('faqList').querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
 
   // Scroll reveal — elemen muncul saat masuk viewport
   const revealEls = document.querySelectorAll('.reveal');
